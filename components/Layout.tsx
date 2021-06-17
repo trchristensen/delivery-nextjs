@@ -23,7 +23,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
     </header>
     <Container px={0} py={0}  maxW="container.xl"> {children} </Container>
 
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

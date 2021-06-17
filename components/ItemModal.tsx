@@ -16,7 +16,7 @@ const ModalFullWidth = (item) => {
       </Text>
 
       <Modal
-        blockScrollOnMount={true}
+        // blockScrollOnMount={true}
         isOpen={isOpen}
         onClose={onClose}
         size={"full"}
@@ -49,7 +49,7 @@ const ModalFullWidth = (item) => {
             </Text>
             <Text mb={2}>{item.description}</Text>
             <Text>{JSON.stringify(item)}</Text>
-            <Button mt={4} backgroundColor={"black"} color={"white"}>Add To Cart</Button>
+            <Button position={'fixed'} bottom={"40px"} mt={4} backgroundColor={"black"} color={"white"}>Add To Cart</Button>
           </ModalBody>
 
           <ModalFooter></ModalFooter>

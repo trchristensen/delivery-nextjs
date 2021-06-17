@@ -14,36 +14,15 @@ import {
 
 const QUERY = gql`
   query {
-    restaurants {
+    stores {
       id
-      created_at
       name
-      Hours {
-        monday_open
-        monday_close
-        tuesday_open
-        tuesday_close
-        wednesday_open
-        wednesday_close
-        thursday_open
-        thursday_close
-        friday_open
-        friday_close
-        saturday_open
-        saturday_close
-        sunday_open
-        sunday_close
-      }
-      categories {
-        id
-        category
-      }
       __typename
     }
   }
 `;
 
-export default function RestaurantsIndex() {
+export default function StoresIndex() {
   const { data, loading, error } = useQuery(QUERY);
 
   if (loading) {
@@ -55,18 +34,18 @@ export default function RestaurantsIndex() {
     return null;
   }
 
-  const restaurants = data.restaurants;
+  const stores = data.stores;
 
   return (
     <main>
-        {restaurants.map((restaurant) => (
-          <div key={`restaurant-${restaurant.id}`}>
-            <Link href={`/restaurants/${restaurant.id}`}>
+        {stores.map((store) => (
+          <div key={`store-${store.id}`}>
+            <Link href={`/stores/${store.id}`}>
               <a>
                 <Box>
-                  {restaurants.map((restaurant) => (
-                    <div key={`restaurant-${restaurant.id}`}>
-                      <Link href={`/restaurants/${restaurant.id}`}>
+                  {stores.map((store) => (
+                    <div key={`store-${store.id}`}>
+                      <Link href={`/store/${store.id}`}>
                         <a>
                           <Center py={6}>
                             <Box
@@ -88,11 +67,11 @@ export default function RestaurantsIndex() {
                               >
                                 {/* <Image
                                   src={
-                                  'http://localhost:1337' + restaurant.logo.url
+                                  'http://localhost:1337' + store.logo.url
                                   }
                                   layout={"fill"}
                                 /> */}
-                                {/* <img src={`http://localhost:1337${restaurant.logo.url}`} /> */}
+                                {/* <img src={`http://localhost:1337${store.logo.url}`} /> */}
                               </Box>
                               <Stack>
                                 <Heading
@@ -100,21 +79,21 @@ export default function RestaurantsIndex() {
                                   fontSize={"2xl"}
                                   fontFamily={"body"}
                                 >
-                                  {restaurant.name}
+                                  {store.name}
                                 </Heading>
-                                <Text color={"gray.500"}>
-                                  {restaurant.description}
-                                </Text>
+                                {/* <Text color={"gray.500"}>
+                                  {store.description}
+                                </Text> */}
                               </Stack>
-                              <Stack direction="row">
-                                {restaurant.categories.map((category) => {
+                              {/* <Stack direction="row">
+                                {store.categories.map((category) => {
                                   return (
                                     <Badge id={category.id} key={category.id}>
                                       {category.category}
                                     </Badge>
                                   );
                                 })}
-                              </Stack>
+                              </Stack> */}
                               <Stack
                                 mt={6}
                                 direction={"row"}
@@ -127,39 +106,39 @@ export default function RestaurantsIndex() {
                                   fontSize={"sm"}
                                 >
 
-                                  <Text color={"gray.500"}>
+                                  {/* <Text color={"gray.500"}>
                                     <Text display="block">
-                                      Monday - {restaurant.Hours.monday_open} -{" "}
-                                      {restaurant.Hours.monday_close}
+                                      Monday - {store.Hours.monday_open} -{" "}
+                                      {store.Hours.monday_close}
                                     </Text>
                                     <Text display="block">
-                                      Tuesday - {restaurant.Hours.tuesday_open}{" "}
-                                      - {restaurant.Hours.tuesday_close}
+                                      Tuesday - {store.Hours.tuesday_open}{" "}
+                                      - {store.Hours.tuesday_close}
                                     </Text>
                                     <Text display="block">
                                       Wednesday -{" "}
-                                      {restaurant.Hours.wednesday_open} -{" "}
-                                      {restaurant.Hours.wednesday_close}
+                                      {store.Hours.wednesday_open} -{" "}
+                                      {store.Hours.wednesday_close}
                                     </Text>
                                     <Text display="block">
                                       Thursday -{" "}
-                                      {restaurant.Hours.thursday_open} -{" "}
-                                      {restaurant.Hours.thursday_close}
+                                      {store.Hours.thursday_open} -{" "}
+                                      {store.Hours.thursday_close}
                                     </Text>
                                     <Text display="block">
-                                      Friday - {restaurant.Hours.friday_open} -{" "}
-                                      {restaurant.Hours.friday_close}
+                                      Friday - {store.Hours.friday_open} -{" "}
+                                      {store.Hours.friday_close}
                                     </Text>
                                     <Text display="block">
                                       Saturday -{" "}
-                                      {restaurant.Hours.saturday_open} -{" "}
-                                      {restaurant.Hours.saturday_close}
+                                      {store.Hours.saturday_open} -{" "}
+                                      {store.Hours.saturday_close}
                                     </Text>
                                     <Text display="block">
-                                      Sunday - {restaurant.Hours.sunday_open} -{" "}
-                                      {restaurant.Hours.sunday_close}
+                                      Sunday - {store.Hours.sunday_open} -{" "}
+                                      {store.Hours.sunday_close}
                                     </Text>
-                                  </Text>
+                                  </Text> */}
                                 </Stack>
                               </Stack>
                             </Box>
